@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/accounts">Accounts</router-link>
+    <div class="slds-einstein-header">
+      <div class="slds-einstein-header__figure slds-size_1-of-4
+        slds-medium-size_3-of-3">
+        <p>{{ message }}</p>
+      </div>
+    </div>
+    <div class="slds-card">
+      <div class="slds-card__header">
+        <router-link to="/" class="slds-button slds-button_outline-brand">
+          Home
+        </router-link>
+        <router-link to="/accounts" class="slds-button slds-button_outline-brand">
+          Accounts
+        </router-link>
+      </div>
+      <div class="slds-card__body slds-card__body_inner ">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       el: '#app',
-      message: "Hello Vue!"
+      message: "Hello Vue!",
     }
   }
 }

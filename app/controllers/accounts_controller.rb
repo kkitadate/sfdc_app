@@ -1,5 +1,5 @@
-class AccountsController < ApplicationController
+class AccountsController < ActionController::API
   def index
-    render :json => {}
+    render :json => { accounts: Account.all }
   end
 end
