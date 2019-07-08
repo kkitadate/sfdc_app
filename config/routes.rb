@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   get '/', to: 'root#index'
-  get '/accounts', to: 'accounts#index'
+  namespace :api, format: 'json' do
+    namespace :v1 do
+      resources :accounts, only: [:index]
+    end
+  end
 end
