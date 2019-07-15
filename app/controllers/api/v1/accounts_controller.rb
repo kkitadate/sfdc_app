@@ -9,7 +9,6 @@ module Api::V1
     end
 
     def edit
-      
     end
   end
 end
