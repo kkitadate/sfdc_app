@@ -1,8 +1,5 @@
 <template>
   <div id="accounts">
-    <button class="slds-button slds-button_brand" v-on:click="getAccounts">
-      {{ message }}
-    </button>
     <div v-if="loading" role="status" class="slds-spinner slds-spinner_small">
       <span class="slds-assistive-text">Loading</span>
       <div class="slds-spinner__dot-a"></div>
@@ -25,7 +22,7 @@
           <tr v-for="acc in filteredAccounts">
             <td>{{ acc.id }}</td>
             <td>
-              <router-link to="#" class="">
+              <router-link v-bind:to="{ path: 'accounts/' + acc.id }">
                 {{ acc.name }}
               </router-link>
             </td>
@@ -51,8 +48,11 @@ export default {
       message: "Get List View",
       accounts: {},
       loading: false,
-      inputText: ""
+      inputText: "",
     }
+  },
+  mounted() {
+    this.getAccounts()
   },
   computed: {
     filteredAccounts() {
