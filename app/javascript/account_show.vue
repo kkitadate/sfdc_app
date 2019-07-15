@@ -41,16 +41,16 @@ export default {
     }
   },
   mounted() {
-    this.loading = true
-    Axios.get('api/v1/accounts/' + this.id)
-    .then(res => {
-      this.account = res.data.account
-      this.loading = false
-    })
+    this.getAccount()
   },
   methods: {
     getAccount() {
-      
+      this.loading = true
+      Axios.get('api/v1/accounts/' + this.id)
+      .then(res => {
+        this.account = res.data.account
+        this.loading = false
+      })
     }
   }
 }

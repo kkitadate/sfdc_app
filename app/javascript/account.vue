@@ -56,11 +56,9 @@ export default {
   },
   computed: {
     filteredAccounts() {
-      console.log(this.inputText)
       let accs = this.accounts.filter(acc => {
         return acc.name.includes(this.inputText)
       })
-      console.log(accs)
       return accs
     }
   },
@@ -70,7 +68,6 @@ export default {
       Axios.get('/api/v1/accounts', { params: {} })
       .then( (res) => {
         this.accounts = res.data.accounts
-        console.log(this.accounts)
         this.loading = false
       })
     }
