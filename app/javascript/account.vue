@@ -13,7 +13,10 @@
             class="slds-input" v-model="inputText" />
         </div>
       </div>
-      <table class="slds-table slds-table_bordered slds-p-top_medium" role="grid">
+      <div class="slds-p-top_small slds-p-left_x-small">
+        Count: {{ count }}
+      </div>
+      <table class="slds-table slds-table_bordered slds-p-top_x-small" role="grid">
         <thead>
           <th>Id</th>
           <th>Name</th>
@@ -49,6 +52,7 @@ export default {
       accounts: {},
       loading: false,
       inputText: "",
+      count: 0,
     }
   },
   mounted() {
@@ -59,6 +63,7 @@ export default {
       let accs = this.accounts.filter(acc => {
         return acc.name.includes(this.inputText)
       })
+      this.count = accs.length    
       return accs
     }
   },
